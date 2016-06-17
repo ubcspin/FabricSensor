@@ -67,7 +67,7 @@ void setup() {
 //
 // Example (<REG><X> = <REG><X> <OP> <BITMASK>):
 //                
-//    regx  = regx op  B76543210
+//    regx  = regx  op B76543210
 //    --------------------------
 //
 //    DDRL  = DDRL  |  B00100000
