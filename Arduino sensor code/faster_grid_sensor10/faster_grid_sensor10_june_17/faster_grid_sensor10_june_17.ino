@@ -64,6 +64,22 @@ void setup() {
 
 // sets digital pins one at a time to replace more expensive pinMode function
 // uses bitwise operations to set and clear the registers. (& to clear, | to set.)
+//
+// Example (<REG><X> = <REG><X> <OP> <BITMASK>):
+//                
+//    regx  = regx op  B76543210
+//    --------------------------
+//
+//    DDRL  = DDRL  |  B00100000
+//                        ^
+//                        guarantee the bit in position 5 is set to output
+//
+//    PORTL = PORTL &  B11101111
+//                         ^
+//                         guarantee the bit in position 4 is set to low
+//
+// reference: https://www.arduino.cc/en/Reference/PortManipulation
+//
 // valMode is boolean, with high being true, pin is integer
 // PORTX is the value/state register for Arduino port x, DDRX is the direction register for Arduino port x. 
 void setPin(boolean valMode, int pin) {
